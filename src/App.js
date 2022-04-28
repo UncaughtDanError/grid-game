@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Board from './Board.js';
+import { useState } from 'react';
 
 function App() {
+  const [greeting, setGreeting] = useState('');
+
+  const clickHandler = () => {
+    fetch('http://localhost:3001/', {
+      method: 'GET',
+      mode: 'cors',
+    })
+    .then((res) => {
+      console.log(res);
+      return res.json();
+    })
+    // .then((data) => document.querySelector('.data').innerText = data.greeting )
+    .then((data) => setGreeting(data.greeting))
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className='data'>{greeting}</h1>
+      <button onClick={clickHandler}>Click me!</button>
+      <Board />
     </div>
   );
 }
