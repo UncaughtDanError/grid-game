@@ -8,21 +8,24 @@
   width: 100px;
   height: 100px;
   margin: 0;
-  display: inline-block;
+  /* display: inline-block; */
+  float: left;
 }
 
 .vertical {
   width: 8px;
   height: 100px;
   margin: 0;
-  display: inline-block;
+  /* display: inline-block; */
+  float: left;
 }
 
 .horizontal {
   width: 100px;
   height: 8px;
   margin: 0;
-  display: inline-block;
+  /* display: inline-block; */
+  float: left;
 }
 
 .row {
@@ -36,14 +39,22 @@
   width: 8px;
   margin: 0;
   height: 8px;
-  display: inline-block;
+  /* display: inline-block; */
+  float: left;
   padding: 0;
 }
 
 .board {
   margin: 0 auto;
+  padding: 20px;
+  border: 1px solid green;
+  height: fit-content;
 }
 
 .game-info {
   font-size: 18px;
+}
+
+.front {
+  z-index: 5;
 }
